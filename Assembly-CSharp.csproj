@@ -63,17 +63,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\Заставка\Logo.cs" />
-    <Compile Include="Assets\Scripts\Игра\arrow.cs" />
-    <Compile Include="Assets\Scripts\Игра\ButtonCollider.cs" />
-    <Compile Include="Assets\Scripts\Игра\counter.cs" />
-    <Compile Include="Assets\Scripts\Игра\Pause.cs" />
-    <Compile Include="Assets\Scripts\Игра\Rotate.cs" />
-    <Compile Include="Assets\Scripts\Игра\TryAgain.cs" />
-    <Compile Include="Assets\Scripts\Игра\Tutorial.cs" />
-    <Compile Include="Assets\Scripts\Меню\buttonCollider.cs" />
-    <Compile Include="Assets\Scripts\Меню\PlayButton.cs" />
-    <Compile Include="Assets\Scripts\Меню\Меню.cs" />
+    <Compile Include="Assets\Scripts\Game\arrow.cs" />
+    <Compile Include="Assets\Scripts\Game\ButtonCollider.cs" />
+    <Compile Include="Assets\Scripts\Game\counter.cs" />
+    <Compile Include="Assets\Scripts\Game\Pause.cs" />
+    <Compile Include="Assets\Scripts\Game\Rotate.cs" />
+    <Compile Include="Assets\Scripts\Game\TryAgain.cs" />
+    <Compile Include="Assets\Scripts\Game\Tutorial.cs" />
+    <Compile Include="Assets\Scripts\Logo\Logo.cs" />
+    <Compile Include="Assets\Scripts\Menu\buttonCollider.cs" />
+    <Compile Include="Assets\Scripts\Menu\Menu.cs" />
+    <Compile Include="Assets\Scripts\Menu\PlayButton.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Roman/Documents/Unity Project/Shieldman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
