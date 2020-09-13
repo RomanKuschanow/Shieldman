@@ -7,10 +7,11 @@ public class Pause1 : MonoBehaviour
     public int Animations = 1;
     public bool AnimationStart;
     public string AniName;
+    public GameObject dark;
 
     void Update()
     {
-        if(AnimationStart == true)
+        if (AnimationStart == true)
             GetComponent<Animation>().Play(AniName);
     }
 
@@ -20,10 +21,12 @@ public class Pause1 : MonoBehaviour
         {
             AnimationStart = true;
             AniName = "Pause animation left 2";
+            dark.transform.position = new Vector3(-25, 0, -4.4f);
         } else if (Animations == 4)
         {
             AnimationStart = true;
             AniName = "Pause animation rigth 2";
+            dark.transform.position = new Vector3(-25, 0, -4.4f);
         }
     }
 
