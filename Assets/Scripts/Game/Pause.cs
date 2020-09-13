@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour
     int pauseCounter;
     int EndPause;
     public int PauseStart = 0;
-    public GameObject Button, ButtonPos, ButtonPos2, dark, left, reight, counter, gameover;
+    public GameObject Button, ButtonStartPos, ButtonPos, dark, left, reight, counter, gameover;
 
     void FixedUpdate()
     {
@@ -18,14 +18,14 @@ public class Pause : MonoBehaviour
             transform.Translate(new Vector3(2, 0, 0));
             pauseCounter = 1;
             PauseStart ++;
-            Button.transform.position = ButtonPos.transform.position;
+            Button.transform.position = ButtonStartPos.transform.position;
         }
         else if (PauseStart > 11 && PauseStart < 23 && gameObject.transform.position.x > 0)
         {
             transform.Translate(new Vector3(-2, 0, 0));
             pauseCounter = 2;
             PauseStart ++;
-            Button.transform.position = ButtonPos.transform.position;
+            Button.transform.position = ButtonStartPos.transform.position;
         }
         //перемещение большой кнопки за экран
         if (pauseCounter == 1 && EndPause == 1)
@@ -46,7 +46,7 @@ public class Pause : MonoBehaviour
         {
             left.transform.position = new Vector3(-5.8f, 0, 0);
             reight.transform.position = new Vector3(5.8f, 0, 0);
-            Button.transform.position = ButtonPos2.transform.position;
+            Button.transform.position = ButtonPos.transform.position;
         }
     }
 

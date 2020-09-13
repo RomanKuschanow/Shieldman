@@ -14,7 +14,6 @@ public class arrow : MonoBehaviour
     float height;
     public Text scoreText, ScoreTextEnd, HighScoreText;
     bool pause;
-    bool pausePos = true;
 
     void FixedUpdate()
     {
@@ -24,10 +23,9 @@ public class arrow : MonoBehaviour
             pause = false;
         }
         //перемещение кнопки паузы на экран
-        if (triger.transform.position.x == -20 && pausePos == true && Button.transform.position.x == 308.825)
+        if (triger.transform.position.x == -20 && Button.transform.position.x == 308.825)
         {
             Button.transform.position = ButtonPos.transform.position;
-            pausePos = false;
         }
         //анимация окончания
         if (Arrow.transform.position.y == height && TryAgain.transform.position.x < 0 && Stats.transform.position.y > 12)
@@ -127,7 +125,6 @@ public class arrow : MonoBehaviour
     void GameEnd2()
     {
         triger.transform.position = new Vector3(-19, 12, -3);
-        Button.transform.position = ButtonStartPos.transform.position;
         GetComponent<SpriteRenderer>().sprite = GameOver;
         fly = 0;
         Destroy(SpawnedArrow);
@@ -140,7 +137,6 @@ public class arrow : MonoBehaviour
     void GameEnd1()
     {
         triger.transform.position = new Vector3(-19, 12, -3);
-        Button.transform.position = ButtonStartPos.transform.position;
         GetComponent<SpriteRenderer>().sprite = GameOver;
         fly = 0;
         Destroy(SpawnedArrow);

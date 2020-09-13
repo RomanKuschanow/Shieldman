@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Game\ButtonCollider.cs" />
     <Compile Include="Assets\Scripts\Game\counter.cs" />
     <Compile Include="Assets\Scripts\Game\Pause.cs" />
+    <Compile Include="Assets\Scripts\Game\Pause1.cs" />
     <Compile Include="Assets\Scripts\Game\Rotate.cs" />
     <Compile Include="Assets\Scripts\Game\TryAgain.cs" />
     <Compile Include="Assets\Scripts\Game\Tutorial.cs" />
