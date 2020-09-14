@@ -1,79 +1,68 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
 
 public class Pause : MonoBehaviour
 {
-    int pauseCounter;
-    int EndPause;
-    public int PauseStart = 0;
-    public GameObject Button, ButtonStartPos, ButtonPos, dark, left, reight, counter, gameover;
-
-    void FixedUpdate()
+    public int Animations = 1;
+    public bool AnimationStart;
+    public string AniName;
+    public GameObject dark, counter, arrow;
+    
+    //запуск анимации
+    void Update()
     {
-        //перемещение большой кнопки на экран
-        if (PauseStart > 0 && PauseStart < 11 && gameObject.transform.position.x < 0)
+        if (AnimationStart == true)
+            GetComponent<Animation>().Play(AniName);
+    }
+
+    //Условия запуска завершающей анимации
+    void OnMouseDown()
+    {
+        if (Animations == 2)
         {
-            transform.Translate(new Vector3(2, 0, 0));
-            pauseCounter = 1;
-            PauseStart ++;
-            Button.transform.position = ButtonStartPos.transform.position;
-        }
-        else if (PauseStart > 11 && PauseStart < 23 && gameObject.transform.position.x > 0)
+            AnimationStart = true;
+            AniName = "Pause animation left 2";
+            dark.transform.position = new Vector3(-25, 0, -4.4f);
+            counter.transform.position = new Vector3(0, 12, -3);
+        } else if (Animations == 4)
         {
-            transform.Translate(new Vector3(-2, 0, 0));
-            pauseCounter = 2;
-            PauseStart ++;
-            Button.transform.position = ButtonStartPos.transform.position;
-        }
-        //перемещение большой кнопки за экран
-        if (pauseCounter == 1 && EndPause == 1)
-        {
-            transform.Translate(new Vector3(2, 0, 0));
-        }
-        else if (pauseCounter == 2 && EndPause == 1)
-        {
-            transform.Translate(new Vector3(-2, 0, 0));
-        }
-        //окончание перемещения
-        if (gameObject.transform.position.x == 20 || gameObject.transform.position.x == -20)
-        {
-            EndPause = 0;
-        }
-        //возврат управления
-        if (counter.transform.position.x == -20 && dark.transform.position.x != 0)
-        {
-            left.transform.position = new Vector3(-5.8f, 0, 0);
-            reight.transform.position = new Vector3(5.8f, 0, 0);
-            Button.transform.position = ButtonPos.transform.position;
+            AnimationStart = true;
+            AniName = "Pause animation rigth 2";
+            dark.transform.position = new Vector3(-25, 0, -4.4f);
+            counter.transform.position = new Vector3(0, 12, -3);
         }
     }
 
-    private void OnMouseDown()
+    //Условия запуска начальной анимации
+    public void StartPauseAnimation()
     {
-        EndPause = 1;
-
-        dark.transform.position = new Vector3(-25, 0, -4.4f);
-
-        counter.transform.position = new Vector3(0, 12, -3);
+        if (Animations == 1)
+        {
+            AnimationStart = true;
+            AniName = "Pause animation left 1";
+            dark.transform.position = new Vector3(0, 0, -4.4f);
+            arrow.transform.position = new Vector3(-20, 19, -1);
+        } else if (Animations == 3)
+        {
+            AnimationStart = true;
+            AniName = "Pause animation rigth 1";
+            dark.transform.position = new Vector3(0, 0, -4.4f);
+            arrow.transform.position = new Vector3(-20, 19, -1);
+        }
     }
 
-    public void PauseStartVoid()
+    //Событие при завершении 1, 2 и 3 анимации
+    public void EndAnimations1_3()
     {
-        if (PauseStart == 0)
-        {
-            PauseStart = 1;
-        }
+        Animations += 1;
+        AnimationStart = false;
+    }
 
-        if(PauseStart == 11)
-        {
-            PauseStart = 12;
-        }
-
-        if(PauseStart == 22)
-        {
-            PauseStart = 1;
-        }
+    //Событие при завершении 4 анимации
+    public void EndAnimations4()
+    {
+        Animations = 1;
+        AnimationStart = false;
     }
 }

@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class arrow : MonoBehaviour
 {
     public Transform SpawnPos1, SpawnPos2;
-    public GameObject Arrow, SpawnedArrow, triger, TryAgain, Stats, left, reight, dark, Button, ButtonPos, ButtonStartPos;
+    public GameObject Arrow, SpawnedArrow, triger, TryAgain, Stats;
     public int rand = 0;
     int fly, Score;
     float speed;
@@ -17,18 +17,15 @@ public class arrow : MonoBehaviour
 
     void FixedUpdate()
     {
-        //затемнение экрана
-        if (dark.transform.position.x == -25 && triger.transform.position.x == -20)
+        //Условие снятия паузы
+        if (triger.transform.position.x == -20)
         {
             pause = false;
+            Arrow.transform.position = new Vector3(-20, 20, -1);
         }
-        //перемещение кнопки паузы на экран
-        if (triger.transform.position.x == -20 && Button.transform.position.x == 308.825)
-        {
-            Button.transform.position = ButtonPos.transform.position;
-        }
+
         //анимация окончания
-        if (Arrow.transform.position.y == height && TryAgain.transform.position.x < 0 && Stats.transform.position.y > 12)
+        if (Arrow.transform.position.y == height && TryAgain.transform.position.x < 1 && Stats.transform.position.y > 12)
         {
             ScoreTextEnd.text = System.Convert.ToString(Score);
             HighScoreText.text = System.Convert.ToString(PlayerPrefs.GetInt("Score"));
@@ -36,6 +33,7 @@ public class arrow : MonoBehaviour
             TryAgain.transform.Translate(new Vector2((0 - TryAgain.transform.position.x) / 4, 0));
             Stats.transform.Translate(new Vector2(0, -(0 + Stats.transform.position.y) / 16.9f));
         }
+
         //спавн стрелы
         if (rand == 0 && triger.transform.position.x == -20)
         {
@@ -57,6 +55,7 @@ public class arrow : MonoBehaviour
                 SpawnedArrow = Instantiate(Arrow, SpawnPos2.position, Quaternion.identity) as GameObject;
             }
         }
+
         //полет стрелы
         if (fly == 1 && pause != true)
         {
@@ -66,6 +65,7 @@ public class arrow : MonoBehaviour
         {
             SpawnedArrow.transform.Translate(new Vector2(-speed, 0));
         }
+
         //столкновение стрелы с игроком
         if (SpawnedArrow.transform.position.x > -3.6 && fly == 1)
         {
@@ -93,8 +93,10 @@ public class arrow : MonoBehaviour
                 GameEnd2();
             }
         }
+
         //счтет
         scoreText.text = System.Convert.ToString(Score);
+
         //Скорость стрелы
         if (System.Convert.ToInt32(scoreText.text) < 10)
         {
@@ -122,9 +124,9 @@ public class arrow : MonoBehaviour
         }
     }
     
+    //Окончание игры
     void GameEnd2()
     {
-        triger.transform.position = new Vector3(-19, 12, -3);
         GetComponent<SpriteRenderer>().sprite = GameOver;
         fly = 0;
         Destroy(SpawnedArrow);
@@ -134,9 +136,9 @@ public class arrow : MonoBehaviour
             PlayerPrefs.SetInt("Score", System.Convert.ToInt32(scoreText.text));
     }
 
+    //Окончание игры
     void GameEnd1()
     {
-        triger.transform.position = new Vector3(-19, 12, -3);
         GetComponent<SpriteRenderer>().sprite = GameOver;
         fly = 0;
         Destroy(SpawnedArrow);
@@ -146,11 +148,10 @@ public class arrow : MonoBehaviour
             PlayerPrefs.SetInt("Score", System.Convert.ToInt32(scoreText.text));
     }
 
+    //Запуск паузы
     public void Pause()
     {
+        triger.transform.position = new Vector3(-19, 12, -3);
         pause = true;
-        dark.transform.position = new Vector3(0, 0, -4.4f);
-        left.transform.position = new Vector3(-25, 0, 0);
-        reight.transform.position = new Vector3(25, 0, 0);
     }
 }

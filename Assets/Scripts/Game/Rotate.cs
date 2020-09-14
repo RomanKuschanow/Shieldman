@@ -17,7 +17,7 @@ public class Rotate : MonoBehaviour
             collider.enabled = true;
         }
 
-        if (Arrow.transform.position.y < 22)
+        if (Arrow.transform.position.y < 20)
         {
             collider.enabled = false;
         }
