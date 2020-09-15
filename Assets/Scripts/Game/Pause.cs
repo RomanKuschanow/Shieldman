@@ -11,12 +11,10 @@ public class Pause : MonoBehaviour
 
     private Animation Animation;
 
-
     private void Start()
     {
         Animation = GetComponent<Animation>();
     }
-
 
     //Возобновление игры
     private void OnMouseDown()
@@ -24,13 +22,11 @@ public class Pause : MonoBehaviour
         PlayAnimation("PauseEndLeft");
     }
 
-
     //Условия запуска начальной анимации
     private void StartPauseAnimation()
     {
         PlayAnimation("PauseStartLeft");
     }
-
 
     private void PlayAnimation(string AnimationName)
     {
