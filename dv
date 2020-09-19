@@ -1,0 +1,47 @@
+[33mcommit 5ac122d4bcb352817538b3d5c7a592c5ed2d2745[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Your Name <you@example.com>
+Date:   Tue Sep 15 19:41:55 2020 +0300
+
+    Рефакторинг
+
+[33mcommit 37e6c48fc8699ed4b35dc3bb251967a47786b7ef[m
+Author: Your Name <you@example.com>
+Date:   Tue Sep 15 19:29:58 2020 +0300
+
+    Фикс паузы
+
+[33mcommit a5939c1e2e202f0db2dc22a9a41e765f5edb2e59[m
+Author: Your Name <you@example.com>
+Date:   Tue Sep 15 19:00:40 2020 +0300
+
+    Рефакторинг паузы
+
+[33mcommit 78f8ce27af188cc3f659fafc56c7ffab251952c0[m
+Author: Roman <kuschanow@gmail.com>
+Date:   Mon Sep 14 22:42:50 2020 +0300
+
+    мелкие переделки кода для удобства чтения
+
+[33mcommit d693f603e60b2331c00d17de8a45f70fae76c248[m
+Author: Roman <kuschanow@gmail.com>
+Date:   Sun Sep 13 21:55:39 2020 +0300
+
+    рабочая анимация паузы
+
+[33mcommit 37e5b48a549f4d0d4ad5e77ab5d3557f0949b1b7[m
+Author: Roman <kuschanow@gmail.com>
+Date:   Sun Sep 13 20:44:03 2020 +0300
+
+    начал переписывать анимацию паузы
+
+[33mcommit 943aa37f0d9181f67ecaf465653b9c7c8f4f4375[m
+Author: Roman <kuschanow@gmail.com>
+Date:   Sat Sep 12 19:02:38 2020 +0300
+
+    праильное поведение кнопки паузы
+
+[33mcommit 597bf457a7d190fd15527c0963ecb93f18e09c71[m
+Author: Roman <kuschanow@gmail.com>
+Date:   Fri Sep 11 19:37:49 2020 +0300
+
+    Первый коммит
