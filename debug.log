@@ -3,3 +3,4 @@
 [0907/230120.459:ERROR:exception_snapshot_win.cc(99)] thread ID 744 not found in process
 [0907/230120.459:ERROR:exception_snapshot_win.cc(99)] thread ID 9060 not found in process
 [0913/214741.287:ERROR:crash_report_database_win.cc(469)] failed to stat report
+[0919/200319.501:ERROR:crash_report_database_win.cc(469)] failed to stat report

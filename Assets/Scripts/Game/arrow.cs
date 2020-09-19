@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class arrow : MonoBehaviour
 {
     public Transform SpawnPos1, SpawnPos2;
-    public GameObject Arrow, SpawnedArrow, triger, TryAgain, Stats;
+    public GameObject Arrow, SpawnedArrow, caunter, TryAgain, Stats;
     public int rand = 0;
     int fly, Score;
     float speed;
@@ -14,19 +14,21 @@ public class arrow : MonoBehaviour
     float height;
     public Text scoreText, ScoreTextEnd, HighScoreText;
     bool pause;
+    public bool Gameover = false;
 
     void FixedUpdate()
     {
         //Условие снятия паузы
-        if (triger.transform.position.x == -20)
+        if (caunter.transform.position.x == -20)
         {
             pause = false;
             Arrow.transform.position = new Vector3(-20, 20, -1);
         }
 
         //анимация окончания
-        if (Arrow.transform.position.y == height && TryAgain.transform.position.x < 1 && Stats.transform.position.y > 12)
+        if (Arrow.transform.position.y == height && TryAgain.transform.position.x < 1.5f && Stats.transform.position.y > 12)
         {
+            Gameover = true;
             ScoreTextEnd.text = System.Convert.ToString(Score);
             HighScoreText.text = System.Convert.ToString(PlayerPrefs.GetInt("Score"));
 
@@ -35,7 +37,7 @@ public class arrow : MonoBehaviour
         }
 
         //спавн стрелы
-        if (rand == 0 && triger.transform.position.x == -20)
+        if (rand == 0 && caunter.transform.position.x == -20)
         {
             rand = Random.Range(1, 3);
             if(rand == 1)
@@ -58,13 +60,9 @@ public class arrow : MonoBehaviour
 
         //полет стрелы
         if (fly == 1 && pause != true)
-        {
             SpawnedArrow.transform.Translate(new Vector2(speed, 0));
-        }
         else if (fly == 2 && pause != true)
-        {
             SpawnedArrow.transform.Translate(new Vector2(-speed, 0));
-        }
 
         //столкновение стрелы с игроком
         if (SpawnedArrow.transform.position.x > -3.6 && fly == 1)
@@ -77,7 +75,7 @@ public class arrow : MonoBehaviour
             }
             else if(gameObject.transform.localScale.x == -0.6f && SpawnedArrow.transform.position.x > -2)
             {
-                GameEnd1();
+                GameEnd(true);
             }
         }
         else if(SpawnedArrow.transform.position.x < 3.6 && fly == 2)
@@ -90,7 +88,7 @@ public class arrow : MonoBehaviour
             }
             else if (gameObject.transform.localScale.x == 0.6f && SpawnedArrow.transform.position.x < 2.5)
             {
-                GameEnd2();
+                GameEnd(false);
             }
         }
 
@@ -102,56 +100,63 @@ public class arrow : MonoBehaviour
         {
             speed = 0.2f;
         }
-        else if (System.Convert.ToInt32(scoreText.text) == 10)
+        switch (System.Convert.ToInt32(scoreText.text))
         {
-            speed = 0.3f;
-        }
-        else if (System.Convert.ToInt32(scoreText.text) == 20)
-        {
-            speed = 0.35f;
-        }
-        else if (System.Convert.ToInt32(scoreText.text) == 30)
-        {
-            speed = 0.45f;
-        }
-        else if (System.Convert.ToInt32(scoreText.text) == 40)
-        {
-            speed = 0.5f;
-        }
-        else if (System.Convert.ToInt32(scoreText.text) == 50)
-        {
-            speed = 0.6f;
-        }
-    }
-    
-    //Окончание игры
-    void GameEnd2()
-    {
-        GetComponent<SpriteRenderer>().sprite = GameOver;
-        fly = 0;
-        Destroy(SpawnedArrow);
-        Arrow.transform.position = new Vector3(2, height, -0.5f);
+            case 10:
+                speed = 0.3f;
+                break;
 
-        if (System.Convert.ToInt32(scoreText.text) > PlayerPrefs.GetInt("Score"))
-            PlayerPrefs.SetInt("Score", System.Convert.ToInt32(scoreText.text));
+            case 20:
+                speed = 0.35f;
+                break;
+
+            case 30:
+                speed = 0.45f;
+                break;
+
+            case 40:
+                speed = 0.5f;
+                break;
+
+            case 50:
+                speed = 0.6f;
+                break;
+        }
     }
 
     //Окончание игры
-    void GameEnd1()
+    void GameEnd(bool GameEnd)
     {
-        GetComponent<SpriteRenderer>().sprite = GameOver;
-        fly = 0;
-        Destroy(SpawnedArrow);
-        Arrow.transform.position = new Vector3(-2, height, -0.5f);
+        switch (GameEnd)
+        {
+            case true:
+                GetComponent<SpriteRenderer>().sprite = GameOver;
+                fly = 0;
+                Destroy(SpawnedArrow);
+                caunter.transform.position = new Vector3(-19, 12, -3);
+                Arrow.transform.position = new Vector3(-2, height, -0.5f);
 
-        if (System.Convert.ToInt32(scoreText.text) > PlayerPrefs.GetInt("Score"))
-            PlayerPrefs.SetInt("Score", System.Convert.ToInt32(scoreText.text));
+                if (System.Convert.ToInt32(scoreText.text) > PlayerPrefs.GetInt("Score"))
+                    PlayerPrefs.SetInt("Score", System.Convert.ToInt32(scoreText.text));
+                break;
+
+            case false:
+                GetComponent<SpriteRenderer>().sprite = GameOver;
+                fly = 0;
+                Destroy(SpawnedArrow);
+                caunter.transform.position = new Vector3(-19, 12, -3);
+                Arrow.transform.position = new Vector3(2, height, -0.5f);
+
+                if (System.Convert.ToInt32(scoreText.text) > PlayerPrefs.GetInt("Score"))
+                    PlayerPrefs.SetInt("Score", System.Convert.ToInt32(scoreText.text));
+                break;
+        }
     }
 
     //Запуск паузы
     public void Pause()
     {
-        triger.transform.position = new Vector3(-19, 12, -3);
+        caunter.transform.position = new Vector3(-19, 12, -3);
         pause = true;
     }
 }

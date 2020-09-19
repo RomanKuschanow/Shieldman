@@ -21,7 +21,7 @@ public class counter : MonoBehaviour
             i++;
         }
         //повторный запуск отсчета
-        if (i == 5 && gameObject.transform.position.x == 0)
+        if (i == 7 && gameObject.transform.position.x == 0)
         {
             i = 1;
         }
