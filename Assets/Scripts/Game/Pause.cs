@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour
 
     private Animation Animation;
 
-    public bool buttonAnimationsLeftorRight = true;
+    bool buttonAnimationsLeftorRight = true;
 
     public counter scriptcon;
     public arrow scriptarr;
@@ -38,14 +38,17 @@ public class Pause : MonoBehaviour
     //Возобновление игры
     private void OnMouseDown()
     {
-        if(buttonAnimationsLeftorRight)
+        switch (buttonAnimationsLeftorRight)
         {
-            PlayAnimation("PauseEndLeft");
+            case true:
+                PlayAnimation("PauseEndLeft");
+                break;
+
+            case false:
+                PlayAnimation("PauseEndRigth");
+                break;
         }
-        else
-        {
-            PlayAnimation("PauseEndRigth");
-        }
+        
     }
 
     //запуск начальной анимации
@@ -53,13 +56,15 @@ public class Pause : MonoBehaviour
     {
         scriptcon.i = 7;
 
-        if (buttonAnimationsLeftorRight)
+        switch (buttonAnimationsLeftorRight)
         {
-            PlayAnimation("PauseStartLeft");
-        }
-        else
-        {
-            PlayAnimation("PauseStartRigth");
+            case true:
+                PlayAnimation("PauseStartLeft");
+                break;
+
+            case false:
+                PlayAnimation("PauseStartRigth");
+                break;
         }
     }
 
