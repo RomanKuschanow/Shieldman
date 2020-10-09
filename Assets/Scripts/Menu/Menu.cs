@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public Transform Player, gameName, playButton, buttonCollider;
+    public Transform Player, gameName, playButton, settingsButon;
     public Sprite arrow, arrowInShield;
     bool moveStart;
     public Text Score;
@@ -29,8 +29,10 @@ public class Menu : MonoBehaviour
             {
                 float gameNamePos = (0 - gameName.transform.position.x) / 5;
                 float playButtonPos = -(0 + playButton.transform.position.x) / 5;
+                float settingsPos = (-9 - settingsButon.transform.position.x) / 5;
                 gameName.Translate(new Vector2(gameNamePos, 0));
                 playButton.Translate(new Vector2(playButtonPos, 0));
+                settingsButon.Translate(new Vector2(settingsPos, 0));
 
                 Score.text = System.Convert.ToString(PlayerPrefs.GetInt("Score"));
             }

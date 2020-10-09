@@ -31,7 +31,7 @@ public class Pause : MonoBehaviour
         if (scriptcon.i == 7 && PauseButton.transform.position.x < PausePos2.transform.position.x)
             PauseButton.transform.Translate(new Vector3(0.6f, 0, 0));
 
-        if (scriptarr.Gameover == true)
+        if (scriptarr.gameover == true)
             scriptcon.i = 7;
     }
 

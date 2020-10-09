@@ -71,7 +71,7 @@
     <Compile Include="Assets\Scripts\Game\TryAgain.cs" />
     <Compile Include="Assets\Scripts\Game\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Logo\Logo.cs" />
-    <Compile Include="Assets\Scripts\Menu\buttonCollider.cs" />
+    <Compile Include="Assets\Scripts\Menu\ChangeMode.cs" />
     <Compile Include="Assets\Scripts\Menu\Menu.cs" />
     <Compile Include="Assets\Scripts\Menu\PlayButton.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">

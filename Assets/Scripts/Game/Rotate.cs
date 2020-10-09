@@ -24,6 +24,12 @@ public class Rotate : MonoBehaviour
     }
     void OnMouseDown()
     {
-        Player.transform.localScale = new Vector3(scl, 0.6f, 0.6f);
+        if(PlayerPrefs.GetInt("mode") == 1)
+            Player.transform.localScale = new Vector3(scl, 0.6f, 0.6f);
+
+        if(PlayerPrefs.GetInt("mode") == -1)
+        {
+            Player.transform.localScale = new Vector3(-Player.transform.localScale.x, 0.6f, 0.6f);
+        }
     }
 }
