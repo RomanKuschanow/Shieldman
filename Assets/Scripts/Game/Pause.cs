@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +8,7 @@ public class Pause : MonoBehaviour
 
     private Animation Animation;
 
-    bool buttonAnimationsLeftorRight = true;
+    public bool buttonAnimationsLeftorRight = true;
 
     public counter scriptcon;
     public arrow scriptarr;
@@ -38,17 +38,14 @@ public class Pause : MonoBehaviour
     //Возобновление игры
     private void OnMouseDown()
     {
-        switch (buttonAnimationsLeftorRight)
+        if(buttonAnimationsLeftorRight)
         {
-            case true:
-                PlayAnimation("PauseEndLeft");
-                break;
-
-            case false:
-                PlayAnimation("PauseEndRigth");
-                break;
+            PlayAnimation("PauseEndLeft");
         }
-        
+        else
+        {
+            PlayAnimation("PauseEndRigth");
+        }
     }
 
     //запуск начальной анимации
@@ -56,15 +53,13 @@ public class Pause : MonoBehaviour
     {
         scriptcon.i = 7;
 
-        switch (buttonAnimationsLeftorRight)
+        if (buttonAnimationsLeftorRight)
         {
-            case true:
-                PlayAnimation("PauseStartLeft");
-                break;
-
-            case false:
-                PlayAnimation("PauseStartRigth");
-                break;
+            PlayAnimation("PauseStartLeft");
+        }
+        else
+        {
+            PlayAnimation("PauseStartRigth");
         }
     }
 
