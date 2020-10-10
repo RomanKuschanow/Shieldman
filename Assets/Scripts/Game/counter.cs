@@ -5,7 +5,7 @@ using UnityEngine;
 public class counter : MonoBehaviour
 {
     public GameObject player, Spawner1, Spawner2;
-    public Sprite two, one;
+    public Sprite one, two, three;
     public int i = 1;
 
     void Update()
@@ -30,9 +30,10 @@ public class counter : MonoBehaviour
     void Animations()
     {
         i++;
-        if (i == 2)
+        if(i == 2)
             GetComponent<SpriteRenderer>().sprite = two;
         else
             GetComponent<SpriteRenderer>().sprite = one;
+
     }
 }

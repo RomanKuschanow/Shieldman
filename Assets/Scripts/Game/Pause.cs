@@ -72,23 +72,23 @@ public class Pause : MonoBehaviour
         switch (AnimationName)
         {
             case "PauseStartLeft":
-                DarkPosition = new Vector3(0, 0, -4.4f);
+                DarkPosition = new Vector3(0, 0, -3.45f);
                 ArrowPosition = new Vector3(-20, 19, -1);
                 break;
 
             case "PauseEndLeft":
-                DarkPosition = new Vector3(-25, 0, -4.4f);
+                DarkPosition = new Vector3(-25, 0, -3.45f);
                 CounterPosition = new Vector3(0, 12, -3);
                 buttonAnimationsLeftorRight = false;
                 break;
                 
             case "PauseStartRigth":
-                DarkPosition = new Vector3(0, 0, -4.4f);
+                DarkPosition = new Vector3(0, 0, -3.45f);
                 ArrowPosition = new Vector3(-20, 19, -1);
                 break;
 
             case "PauseEndRigth":
-                DarkPosition = new Vector3(-25, 0, -4.4f);
+                DarkPosition = new Vector3(-25, 0, -3.45f);
                 CounterPosition = new Vector3(0, 12, -3);
                 buttonAnimationsLeftorRight = true;
                 break;

@@ -55,50 +55,54 @@ public class arrow : MonoBehaviour
 
         }
 
-        //полет стрелы
-        if (!pause && fly > 0)
+        //существует ли стрела?
+        if(SpawnedArrow != null)
         {
-            SpawnedArrow.transform.Translate(new Vector2(speed * arrowDirection, 0));
-        }
+            //полет стрелы
+            if (!pause && fly > 0)
+            {
+                SpawnedArrow.transform.Translate(new Vector2(speed * arrowDirection, 0));
+            }
 
-        //столкновение стрелы с игроком
-        if (SpawnedArrow.transform.position.x > -3.6 && fly == 1)
-        {
-            if (gameObject.transform.localScale.x == 0.6f)
+            //столкновение стрелы с игроком
+            if (SpawnedArrow.transform.position.x > -3.6 && fly == 1)
             {
-                Destroy(SpawnedArrow);
-                fly = 0;
-                score++;
+                if (gameObject.transform.localScale.x == 0.6f)
+                {
+                    Destroy(SpawnedArrow);
+                    fly = 0;
+                    score++;
+                }
+                else if (gameObject.transform.localScale.x == -0.6f && SpawnedArrow.transform.position.x > -2)
+                {
+                    GameEnd(true);
+                }
             }
-            else if(gameObject.transform.localScale.x == -0.6f && SpawnedArrow.transform.position.x > -2)
+            else if (SpawnedArrow.transform.position.x < 3.6 && fly == 2)
             {
-                GameEnd(true);
+                if (gameObject.transform.localScale.x == -0.6f)
+                {
+                    Destroy(SpawnedArrow);
+                    fly = 0;
+                    score++;
+                }
+                else if (gameObject.transform.localScale.x == 0.6f && SpawnedArrow.transform.position.x < 2.5)
+                {
+                    GameEnd(false);
+                }
             }
-        }
-        else if(SpawnedArrow.transform.position.x < 3.6 && fly == 2)
-        {
-            if (gameObject.transform.localScale.x == -0.6f)
-            {
-                Destroy(SpawnedArrow);
-                fly = 0;
-                score++;
-            }
-            else if (gameObject.transform.localScale.x == 0.6f && SpawnedArrow.transform.position.x < 2.5)
-            {
-                GameEnd(false);
-            }
-        }
 
-        //счет
-        ScoreText.text = System.Convert.ToString(score);
+            //счет
+            ScoreText.text = System.Convert.ToString(score);
 
-        //столкновение стрелы со считом
-        if (System.Math.Abs(SpawnedArrow.transform.position.x) < 3.6)
-        {
-            //увеличивает скорость на 0.05f каждые 10 очков
-            if (score % 10 == 0)
+            //столкновение стрелы со считом
+            if (System.Math.Abs(SpawnedArrow.transform.position.x) < 3.6)
             {
-                speed += 0.05f;
+                //увеличивает скорость на 0.05f каждые 10 очков
+                if (score % 10 == 0)
+                {
+                    speed += 0.05f;
+                }
             }
         }
     }
@@ -111,7 +115,7 @@ public class arrow : MonoBehaviour
         Сaunter.transform.position = new Vector3(-19, 12, -3);
 
         if (GameEnd) Arrow.transform.position = new Vector3(-2, height, -0.5f);
-        else Arrow.transform.position = new Vector3(2, height, -0.5f);
+        else Arrow.transform.position = new Vector3(2, height, -0.72f);
 
 
         if (System.Convert.ToInt32(ScoreText.text) > PlayerPrefs.GetInt("Score"))
