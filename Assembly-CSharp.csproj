@@ -64,6 +64,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Game\arrow.cs" />
+    <Compile Include="Assets\Scripts\Game\BackToMenu.cs" />
     <Compile Include="Assets\Scripts\Game\ButtonCollider.cs" />
     <Compile Include="Assets\Scripts\Game\counter.cs" />
     <Compile Include="Assets\Scripts\Game\Pause.cs" />

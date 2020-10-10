@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class arrow : MonoBehaviour
 {
     public Transform SpawnPos1, SpawnPos2;
-    public GameObject Arrow, SpawnedArrow, Сaunter, TryAgain, Stats;
+    public GameObject Arrow, SpawnedArrow, Сaunter, TryAgain, Stats, BackToMenu;
     
     public int fly, score;
 
@@ -38,6 +38,7 @@ public class arrow : MonoBehaviour
 
             TryAgain.transform.Translate(new Vector2((0 - TryAgain.transform.position.x) / 4, 0));
             Stats.transform.Translate(new Vector2(0, -(0 + Stats.transform.position.y) / 16.9f));
+            BackToMenu.transform.Translate(new Vector2((-8.7f - BackToMenu.transform.position.x) / 4, 0));
         }
 
         //спавн стрелы
