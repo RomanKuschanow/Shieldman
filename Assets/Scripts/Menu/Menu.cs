@@ -5,10 +5,15 @@ using UnityEngine.UI;
 
 public class Menu : MonoBehaviour
 {
-    public Transform Player, gameName, playButton, settingsButon;
+    public Transform Player, gameName, playButton, settingsButon, settingsPos;
     public Sprite arrow, arrowInShield;
     bool moveStart;
     public Text Score;
+
+    private void Start()
+    {
+        settingsButon.transform.position = new Vector2(settingsButon.transform.position.x, settingsPos.transform.position.y);
+    }
 
     void FixedUpdate()
     {
@@ -29,10 +34,12 @@ public class Menu : MonoBehaviour
             {
                 float gameNamePos = (0 - gameName.transform.position.x) / 5;
                 float playButtonPos = -(0 + playButton.transform.position.x) / 5;
-                float settingsPos = (-9 - settingsButon.transform.position.x) / 5;
                 gameName.Translate(new Vector2(gameNamePos, 0));
                 playButton.Translate(new Vector2(playButtonPos, 0));
-                settingsButon.Translate(new Vector2(settingsPos, 0));
+                if (settingsButon.transform.position.x < settingsPos.transform.position.x)
+                {
+                    settingsButon.Translate(new Vector2((settingsPos.transform.position.x - settingsButon.transform.position.x) / 5, 0));
+                }
 
                 Score.text = System.Convert.ToString(PlayerPrefs.GetInt("Score"));
             }

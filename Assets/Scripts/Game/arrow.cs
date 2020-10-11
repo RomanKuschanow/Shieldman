@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class arrow : MonoBehaviour
 {
     public Transform SpawnPos1, SpawnPos2;
-    public GameObject Arrow, SpawnedArrow, Сaunter, TryAgain, Stats, BackToMenu;
+    public GameObject Arrow, SpawnedArrow, Сaunter, TryAgain, Stats;
     
     public int fly, score;
 
@@ -36,9 +36,8 @@ public class arrow : MonoBehaviour
             ScoreTextEnd.text = System.Convert.ToString(score);
             HighScoreText.text = System.Convert.ToString(PlayerPrefs.GetInt("Score"));
 
-            TryAgain.transform.Translate(new Vector2((0 - TryAgain.transform.position.x) / 4, 0));
+            TryAgain.transform.Translate(new Vector2((0.3f - TryAgain.transform.position.x) / 4, 0));
             Stats.transform.Translate(new Vector2(0, -(0 + Stats.transform.position.y) / 16.9f));
-            BackToMenu.transform.Translate(new Vector2((-8.7f - BackToMenu.transform.position.x) / 4, 0));
         }
 
         //спавн стрелы
@@ -98,10 +97,10 @@ public class arrow : MonoBehaviour
             //столкновение стрелы со считом
             if (System.Math.Abs(SpawnedArrow.transform.position.x) < 3.6)
             {
-                //увеличивает скорость на 0.01f каждые 10 очков
+                //увеличивает скорость на 0.05f каждые 10 очков
                 if (score % 10 == 0)
                 {
-                    speed += 0.01f;
+                    speed += 0.05f;
                 }
             }
         }
