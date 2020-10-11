@@ -5,8 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class TryAgain : MonoBehaviour
 {
-    public void LoadScene(int scene)
+    public void OnMouseDown()
     {
-        SceneManager.LoadScene(scene);
+        SceneManager.LoadScene(2);
     }
+
 }

@@ -30,7 +30,7 @@ public class arrow : MonoBehaviour
         }
 
         //анимация окончания
-        if (Arrow.transform.position.y == height && TryAgain.transform.position.x < 1.5f && Stats.transform.position.y > 12)
+        if (Arrow.transform.position.y == height && Stats.transform.position.y > 12 && TryAgain.transform.position.x < 0)
         {
             gameover = true;
             ScoreTextEnd.text = System.Convert.ToString(score);
@@ -98,10 +98,10 @@ public class arrow : MonoBehaviour
             //столкновение стрелы со считом
             if (System.Math.Abs(SpawnedArrow.transform.position.x) < 3.6)
             {
-                //увеличивает скорость на 0.05f каждые 10 очков
+                //увеличивает скорость на 0.01f каждые 10 очков
                 if (score % 10 == 0)
                 {
-                    speed += 0.05f;
+                    speed += 0.01f;
                 }
             }
         }

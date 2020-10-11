@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Pause : MonoBehaviour
 {
-    public GameObject dark, counter, arrow, PauseButton, PausePos, PausePos2;
+    public GameObject dark, counter, arrow, PauseButton, PausePos, BackPos, PausePos2, BackToMenu;
 
     private Animation Animation;
 
@@ -15,6 +15,7 @@ public class Pause : MonoBehaviour
 
     private void Start()
     {
+        BackToMenu.transform.position = new Vector3(BackToMenu.transform.position.x, PausePos.transform.position.y, -1);
         PauseButton.transform.position = new Vector3(PauseButton.transform.position.x, PausePos.transform.position.y, 0);
         PausePos2.transform.position = new Vector3(PausePos2.transform.position.x, PausePos.transform.position.y, 0);
         Animation = GetComponent<Animation>();
@@ -30,6 +31,9 @@ public class Pause : MonoBehaviour
 
         if (scriptcon.i == 7 && PauseButton.transform.position.x < PausePos2.transform.position.x)
             PauseButton.transform.Translate(new Vector3(0.6f, 0, 0));
+
+        if (scriptcon.i == 7 && BackToMenu.transform.position.x > BackPos.transform.position.x)
+            BackToMenu.transform.Translate(new Vector3(0.6f, 0, 0));
 
         if (scriptarr.gameover == true)
             scriptcon.i = 7;
