@@ -6,7 +6,7 @@ public class counter : MonoBehaviour
 {
     public GameObject player, Spawner1, Spawner2;
     public Sprite one, two, three;
-    public int i = 1;
+    public float i = 1;
 
     void Update()
     {
