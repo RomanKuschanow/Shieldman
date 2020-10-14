@@ -20,6 +20,8 @@ public class arrow : MonoBehaviour
     public bool pause;
     public bool gameover = false;
 
+    public Sprite GameOverSprite;
+
     void FixedUpdate()
     {
         //Условие снятия паузы
@@ -38,6 +40,8 @@ public class arrow : MonoBehaviour
 
             TryAgain.transform.Translate(new Vector2((0.3f - TryAgain.transform.position.x) / 4, 0));
             Stats.transform.Translate(new Vector2(0, -(0 + Stats.transform.position.y) / 16.9f));
+
+            GetComponent<SpriteRenderer>().sprite = GameOverSprite;
         }
 
         //спавн стрелы
