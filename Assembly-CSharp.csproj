@@ -72,9 +72,13 @@
     <Compile Include="Assets\Scripts\Game\TryAgain.cs" />
     <Compile Include="Assets\Scripts\Game\Tutorial.cs" />
     <Compile Include="Assets\Scripts\Logo\Logo.cs" />
-    <Compile Include="Assets\Scripts\Menu\ChangeMode.cs" />
     <Compile Include="Assets\Scripts\Menu\Menu.cs" />
     <Compile Include="Assets\Scripts\Menu\PlayButton.cs" />
+    <Compile Include="Assets\Scripts\Menu\PlayButtonTriger.cs" />
+    <Compile Include="Assets\Scripts\Menu\settings.cs" />
+    <Compile Include="Assets\Scripts\Settings\ChangeMode.cs" />
+    <Compile Include="Assets\Scripts\Settings\Move.cs" />
+    <Compile Include="Assets\Scripts\Settings\SettingAnimations.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Roman/Documents/Unity Project/Shieldman/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
