@@ -1,6 +1,6 @@
 Android
 PlayerPath?
-C:/Users/Roman/Documents/Unity Project/Shieldman/Shieldman.apk
+C:/Users/Roman/Documents/Unity Project/Shieldman1/Shieldman.apk
 SceneListBegin?
 Assets/Scenes/Loading.unity
 Assets/Scenes/main.unity
