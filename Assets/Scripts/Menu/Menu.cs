@@ -9,12 +9,12 @@ public class Menu : MonoBehaviour
     public Sprite arrow, arrowInShield;
     public bool moveStart;
     public Text Score;
-    public int playerpos, gamenamepos;
+    public float playerpos, gamenamepos;
     public float arrowpos, arrowspeed;
 
     private void Start()
     {
-        settingsButon.transform.position = new Vector2(settingsButon.transform.position.x, settingsPos.transform.position.y);
+        settingsButon.transform.position = new Vector3(settingsButon.transform.position.x, settingsPos.transform.position.y, -3.5f);
     }
 
     void FixedUpdate()
@@ -58,7 +58,7 @@ public class Menu : MonoBehaviour
             {
                 if (moveStart == true && playButton.transform.position.x > 0.001)
                 {
-                    float gameNamePos = -(-6 + gameName.transform.position.y) / 10;
+                    float gameNamePos = -(-5 + gameName.transform.position.y) / 10;
                     float playButtonPos = (0 + playButton.transform.position.x) / 5;
                     gameName.Translate(new Vector3(0, gameNamePos, 0));
                     playButton.Translate(new Vector3(playButtonPos, 0, 0));
