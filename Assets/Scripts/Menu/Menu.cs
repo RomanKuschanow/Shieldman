@@ -14,7 +14,7 @@ public class Menu : MonoBehaviour
 
     private void Start()
     {
-        settingsButon.transform.position = new Vector3(settingsButon.transform.position.x, settingsPos.transform.position.y, -3.5f);
+        settingsButon.transform.position = new Vector3(settingsButon.transform.position.x, settingsPos.transform.position.y, -2.5f);
     }
 
     void FixedUpdate()
@@ -71,6 +71,5 @@ public class Menu : MonoBehaviour
                 }
             }
         }
-        
     }
 }
