@@ -11,6 +11,6 @@ public class Screen_res : MonoBehaviour
     {
         res.text = System.Convert.ToString(Screen.width + "x" + Screen.height);
 
-        res.transform.position = new Vector2(0, 0 + (Screen.height / 30));
+        res.transform.position = new Vector2(0, 0 + (Screen.height / 30f));
     }
 }

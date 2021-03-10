@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts 2.0\Logo\Logo2_0.cs" />
     <Compile Include="Assets\Scripts 2.0\Menu\Collider2_0.cs" />
     <Compile Include="Assets\Scripts 2.0\Menu\Menu2_0.cs" />
+    <Compile Include="Assets\Scripts 2.0\Menu\PlayButton2_0.cs" />
     <Compile Include="Assets\Scripts 2.0\Menu\Screen_res.cs" />
     <Compile Include="Assets\Scripts\Game\arrow.cs" />
     <Compile Include="Assets\Scripts\Game\BackToMenu.cs" />
