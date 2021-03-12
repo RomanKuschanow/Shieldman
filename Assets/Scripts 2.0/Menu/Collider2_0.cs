@@ -11,4 +11,10 @@ public class Collider2_0 : MonoBehaviour
         if (collision.tag == "Player")
             arrow_start = true;
     }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+            arrow_start = true;
+    }
 }
